@@ -17,10 +17,9 @@ interface Auth {
 data class FireAuth(
     private val activity: AppCompatActivity
 ) : Auth {
-    private val RC_SIGN_IN = 0XFACE.toInt()
-    private val providers = arrayListOf(
+    private val RC_SIGN_IN = 0XFACE
+    private var providers = arrayListOf(
 //        AuthUI.IdpConfig.EmailBuilder().build(),
-        AuthUI.IdpConfig.PhoneBuilder().build(),
         AuthUI.IdpConfig.GoogleBuilder().build()
     )
 
@@ -28,6 +27,8 @@ data class FireAuth(
         get() = FirebaseAuth.getInstance().currentUser?.let { User(it.displayName ?: "") }
 
     override fun login() {
+        if (BuildConfig.DEBUG) providers.add(AuthUI.IdpConfig.PhoneBuilder().build())
+
         activity.startActivityForResult(
             AuthUI.getInstance()
                 .createSignInIntentBuilder()

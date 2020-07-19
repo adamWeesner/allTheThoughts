@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "937960176260-i70uakpcifaruhl3b7fcvt2dvqq799g4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.weesnerdevelopment.allthethoughts",
+            "certificate_hash": "38ba83f58e92d33278707fcd87e6aa24db9e936a"
+          }
+        },
+        {
           "client_id": "937960176260-sqhmsj0lksto4fck9dr1ljotaq2akhjl.apps.googleusercontent.com",
           "client_type": 3
         }
