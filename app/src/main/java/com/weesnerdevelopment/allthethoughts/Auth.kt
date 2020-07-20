@@ -20,7 +20,6 @@ data class FireAuth(
 ) : Auth {
     private val RC_SIGN_IN = 0XFACE
     private var providers = arrayListOf(
-//        AuthUI.IdpConfig.EmailBuilder().build(),
         AuthUI.IdpConfig.GoogleBuilder().build()
     )
 
@@ -33,8 +32,6 @@ data class FireAuth(
         }
 
     override fun login() {
-        if (BuildConfig.DEBUG) providers.add(AuthUI.IdpConfig.PhoneBuilder().build())
-
         activity.startActivityForResult(
             AuthUI.getInstance()
                 .createSignInIntentBuilder()
