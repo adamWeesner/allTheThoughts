@@ -35,7 +35,7 @@ class ThoughtsListFragment : Fragment() {
             addItemDecoration(
                 DividerItemDecoration(
                     context,
-                    LinearLayoutManager.HORIZONTAL
+                    DividerItemDecoration.VERTICAL
                 )
             )
         }
