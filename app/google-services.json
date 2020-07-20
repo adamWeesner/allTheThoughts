@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "937960176260",
+    "firebase_url": "https://allyourthoughts-c0eba.firebaseio.com",
+    "project_id": "allyourthoughts-c0eba",
+    "storage_bucket": "allyourthoughts-c0eba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937960176260:android:f0b9e502cffb0680a460d1",
+        "android_client_info": {
+          "package_name": "com.weesnerdevelopment.allthethoughts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937960176260-i70uakpcifaruhl3b7fcvt2dvqq799g4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.weesnerdevelopment.allthethoughts",
+            "certificate_hash": "38ba83f58e92d33278707fcd87e6aa24db9e936a"
+          }
+        },
+        {
+          "client_id": "937960176260-sqhmsj0lksto4fck9dr1ljotaq2akhjl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmbxPdSOA5XjpVSXCeBPLLVRUdIXaKKLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937960176260-sqhmsj0lksto4fck9dr1ljotaq2akhjl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

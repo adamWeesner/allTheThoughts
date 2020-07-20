@@ -3,26 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/ThoughtsListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.weesnerdevelopment.allthethoughts.FirstFragment"
+        android:id="@+id/ThoughtsListFragment"
+        android:name="com.weesnerdevelopment.allthethoughts.ThoughtsListFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_thoughts_list" />
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.weesnerdevelopment.allthethoughts.SecondFragment"
+        android:id="@+id/AddThoughtFragment"
+        android:name="com.weesnerdevelopment.allthethoughts.AddThoughtFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_add_thought" />
+    <action
+        android:id="@+id/action_global_AddThoughtFragment"
+        app:destination="@id/AddThoughtFragment" />
 </navigation>
