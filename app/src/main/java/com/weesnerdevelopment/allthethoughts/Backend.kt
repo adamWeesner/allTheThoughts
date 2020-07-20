@@ -1,14 +1,17 @@
 package com.weesnerdevelopment.allthethoughts
 
+import android.os.Parcelable
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Thought(
     val id: String? = null,
     val owner: String? = null,
     val time: Long? = System.currentTimeMillis(),
     val value: String? = null
-)
+) : Parcelable
 
 interface Backend {
     fun add(thought: Thought, callback: () -> Unit)
