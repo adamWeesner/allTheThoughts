@@ -5,6 +5,7 @@ import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 
 data class User(
+    val id: String,
     val name: String
 )
 
@@ -24,7 +25,12 @@ data class FireAuth(
     )
 
     override var current: User? = null
-        get() = FirebaseAuth.getInstance().currentUser?.let { User(it.displayName ?: "") }
+        get() = FirebaseAuth.getInstance().currentUser?.let {
+            User(
+                it.uid,
+                it.displayName ?: ""
+            )
+        }
 
     override fun login() {
         if (BuildConfig.DEBUG) providers.add(AuthUI.IdpConfig.PhoneBuilder().build())
