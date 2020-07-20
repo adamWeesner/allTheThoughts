@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.fragment_thoughts_list.*
 
 class ThoughtDatesListFragment : Fragment() {
     private val thoughtsDateAdapter = GroupAdapter<GroupieViewHolder>()
-    private lateinit var backend: Backend
     private lateinit var auth: Auth
     private var thoughtItems: List<Thought> = listOf()
 
@@ -27,11 +26,6 @@ class ThoughtDatesListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
-        auth = FireAuth(requireActivity() as AppCompatActivity)
-        backend = FireBackend(
-            auth.current ?: throw IllegalArgumentException("Somehow auth was not valid")
-        )
-
         recycler_view_thoughts.apply {
             adapter = thoughtsDateAdapter
             addItemDecoration(
@@ -42,28 +36,40 @@ class ThoughtDatesListFragment : Fragment() {
             )
         }
 
-        backend.getAll {
-            if (thoughtItems == it?.reversed()) return@getAll
+        auth = FireAuth(requireActivity() as AppCompatActivity)
+        if (auth.current != null) {
+            FireBackend(
+                auth.current ?: throw IllegalArgumentException("Somehow auth was not valid")
+            ).apply {
+                getAll {
+                    if (thoughtItems == it?.reversed()) return@getAll
 
-            thoughtItems = it?.reversed() ?: listOf()
+                    thoughtItems = it?.reversed() ?: listOf()
 
-            val singleDates = mutableListOf<String>()
+                    val singleDates = mutableListOf<String>()
 
-            thoughtItems.forEach {
-                if (!singleDates.contains(formatDate(it.time))) singleDates.add(formatDate(it.time)!!)
-            }
-
-            singleDates.map { date ->
-                ThoughtDateItem(date) {
-                    findNavController().navigate(
-                        ThoughtDatesListFragmentDirections.actionThoughtDatesListFragmentToThoughtsListFragment(
-                            thoughtItems.filter { formatDate(it.time) == date }.toTypedArray()
-                                ?: arrayOf()
+                    thoughtItems.forEach {
+                        if (!singleDates.contains(formatDate(it.time))) singleDates.add(
+                            formatDate(
+                                it.time
+                            )!!
                         )
-                    )
+                    }
+
+                    singleDates.map { date ->
+                        ThoughtDateItem(date) {
+                            findNavController().navigate(
+                                ThoughtDatesListFragmentDirections.actionThoughtDatesListFragmentToThoughtsListFragment(
+                                    thoughtItems.filter { formatDate(it.time) == date }
+                                        .toTypedArray()
+                                        ?: arrayOf()
+                                )
+                            )
+                        }
+                    }.also {
+                        thoughtsDateAdapter.update(it)
+                    }
                 }
-            }.also {
-                thoughtsDateAdapter.update(it)
             }
         }
     }

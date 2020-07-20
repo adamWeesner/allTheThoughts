@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion 29
@@ -44,6 +45,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     implementation 'com.google.firebase:firebase-analytics-ktx:17.4.4'
+    implementation 'com.google.firebase:firebase-crashlytics:17.1.1'
     implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
     implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
     implementation 'com.xwray:groupie:2.8.0'

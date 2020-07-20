@@ -54,5 +54,7 @@ class MainActivity : AppCompatActivity() {
             else "Welcome ${auth.current?.name}",
             Snackbar.LENGTH_LONG
         ).show()
+
+        recreate()
     }
 }
