@@ -21,6 +21,7 @@ class AddThoughtFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
 
         auth = FireAuth(requireActivity() as AppCompatActivity)
         backend = FireBackend(

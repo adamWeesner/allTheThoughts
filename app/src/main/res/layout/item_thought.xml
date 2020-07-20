@@ -6,28 +6,27 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/text_thought_time"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp_sm"
-        android:layout_marginTop="@dimen/dp_sm"
-        android:textAppearance="?textAppearanceBody1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Jan 25, 1990 10:12:22 AM" />
-
-    <TextView
         android:id="@+id/text_thought"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dp_sm"
-        android:layout_marginTop="@dimen/dp_sm"
+        android:layout_marginTop="@dimen/dp_md"
         android:textAppearance="?textAppearanceBody1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="This is my random thought right here. This is my random thought right here. This is my random thought right here." />
+
+    <TextView
+        android:id="@+id/text_thought_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_sm"
+        android:layout_marginBottom="@dimen/dp_md"
+        android:textAppearance="?textAppearanceCaption"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="@dimen/dp_sm"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_thought_time"
-        tools:text="This is my random thought right here. This is my random thought right here. This is my random thought right here." />
+        app:layout_constraintTop_toBottomOf="@id/text_thought"
+        tools:text="Jan 25, 1990 10:12:22 AM" />
 </androidx.constraintlayout.widget.ConstraintLayout>

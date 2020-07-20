@@ -3,13 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/ThoughtsListFragment">
+    app:startDestination="@id/thoughtDatesListFragment">
 
+    <fragment
+        android:id="@+id/thoughtDatesListFragment"
+        android:name="com.weesnerdevelopment.allthethoughts.ThoughtDatesListFragment"
+        android:label="ThoughtDatesListFragment"
+        tools:layout="@layout/fragment_thought_date_list">
+        <action
+            android:id="@+id/action_thoughtDatesListFragment_to_ThoughtsListFragment"
+            app:destination="@id/ThoughtsListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/ThoughtsListFragment"
         android:name="com.weesnerdevelopment.allthethoughts.ThoughtsListFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_thoughts_list" />
+        tools:layout="@layout/fragment_thoughts_list">
+        <argument
+            android:name="thoughts"
+            app:argType="com.weesnerdevelopment.allthethoughts.Thought[]" />
+    </fragment>
     <fragment
         android:id="@+id/AddThoughtFragment"
         android:name="com.weesnerdevelopment.allthethoughts.AddThoughtFragment"
